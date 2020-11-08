@@ -1,13 +1,27 @@
 package za.co.mosdemos.carracing.domain.objectmodel;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
+@Entity
+@Table(name = "car")
 public class Car {
+
+    @Id
+    @Column(name = "id", nullable = false)
     private long id;
+    @Column(name = "name", nullable = false, length = 255)
     private String name;
+    @Column(name = "acceleration", nullable = true)
     private int acceleration;
+    @Column(name = "braking", nullable = true)
     private int braking;
+    @Column(name = "corner_ability", nullable = true)
     private int cornerAbility;
+    @Column(name = "top_speed", nullable = true)
     private int topSpeed;
 
     public Car() {

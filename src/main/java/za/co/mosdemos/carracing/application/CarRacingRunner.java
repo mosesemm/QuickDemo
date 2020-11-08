@@ -72,8 +72,7 @@ public class CarRacingRunner implements CommandLineRunner {
             Optional<List<CarScore>> carScores = Optional.ofNullable(racingGameService.startRace(optionalCars, Optional.ofNullable(raceTrack.getPatterns())));
 
             System.out.println("Winners: ");
-
-            //TODO: will be nice to show indexes as well
+            
             carScores
                     .orElseThrow(() -> new IllegalStateException("Unexpected error, scores cannot be empty after race"))
                     .stream()
@@ -86,6 +85,7 @@ public class CarRacingRunner implements CommandLineRunner {
 
         }
         catch (Exception ex) {
+            System.err.println(String.format("Error occurred running car racing game: %s", ex.getMessage()));
             logger.error("Error occurred running car racing game", ex);
             System.exit(1);
         }
