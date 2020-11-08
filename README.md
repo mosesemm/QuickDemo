@@ -7,7 +7,7 @@
 ### Step by step setups
 ##### Download code to local:
 Can use any of the options that are applicable
-1. Download zip from https://github.com/mosesemm/QuickDemo
+1. Download zip from https://github.com/mosesemm/QuickDemo/archive/master.zip
 2. Unzip and go into the directory QuickDemo (From then on that will be the project root directory) 
 3. Open terminal from there
 
