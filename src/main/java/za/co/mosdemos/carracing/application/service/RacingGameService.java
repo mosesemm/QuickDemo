@@ -35,7 +35,6 @@ public class RacingGameService implements IRacingGameService {
 
     @Override
     public List<CarScore> startRace(Optional<List<Car>> cars, Optional<String> trackPatterns) {
-        //TODO: make all domain inputs optionals
         return raceRankingService.firstNumberOfCars(carRacingService.start(cars, trackPatterns).get(), 3);
     }
 }

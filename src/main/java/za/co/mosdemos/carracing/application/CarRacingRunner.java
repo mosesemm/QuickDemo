@@ -59,20 +59,22 @@ public class CarRacingRunner implements CommandLineRunner {
                             System.out.println(String.format("%d (%s) - acceleration (%d), bracking (%d), Cornering ability (%d), Top speed (%d)",
                                     car.getId(), car.getName(), car.getAcceleration(), car.getBraking(), car.getCornerAbility(), car.getTopSpeed())));
 
+            if(optionalCars.get().size() <= 3) {
+                throw new IllegalStateException("Requires minimum 3 cars to run");
+            }
+
             System.out.println("Press any key to begin");
 
             System.in.read();
 
             System.out.println("And the race begins");
 
-            //TODO: move this with validation of
-
             RaceTrack raceTrack = optionalRaceTracks.get().stream().filter(track -> track.getId() == new Long(trackId)).findFirst().get();
 
             Optional<List<CarScore>> carScores = Optional.ofNullable(racingGameService.startRace(optionalCars, Optional.ofNullable(raceTrack.getPatterns())));
 
             System.out.println("Winners: ");
-            
+
             carScores
                     .orElseThrow(() -> new IllegalStateException("Unexpected error, scores cannot be empty after race"))
                     .stream()

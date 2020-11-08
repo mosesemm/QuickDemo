@@ -1,16 +1,39 @@
 # Car racing demo
 
-### Tech stack
-For further reference, please consider the following sections:
+### Required
+* Maven 
+* Mysql 
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.3.5.RELEASE/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.3.5.RELEASE/maven-plugin/reference/html/#build-image)
-* [Spring Data JPA](https://docs.spring.io/spring-boot/docs/2.3.5.RELEASE/reference/htmlsingle/#boot-features-jpa-and-spring-data)
+### Step by step setups
+##### Download code to local:
+Can use any of the options that are applicable
+1. Download zip from https://github.com/mosesemm/QuickDemo
+2. Unzip and go into the directory QuickDemo (From then on that will be the project root directory) 
+3. Open terminal from there
 
-### To run
-The following guides illustrate how to use some features concretely:
+##### Setup DB
+1. Log into mysql as root (Enter root password on prompt):
+```mysql -u root -h localhost -p```
 
-* [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
-* [Accessing data with MySQL](https://spring.io/guides/gs/accessing-data-mysql/)
+2. Create required database
+```mysql> create database carRacingDB;```
 
+3. Create required application user;
+```mysql> CREATE USER 'appuser'@'localhost' IDENTIFIED BY 'password1';```
+
+4. Give user required privileges
+```mysql> GRANT ALL PRIVILEGES ON carRacingDB. * TO 'appuser'@'localhost';```
+
+5. Exit mysql
+```mysql> quit```
+
+
+6. Within project root directory, run mysql import of data (Enter root password on prompt):
+ ```mysql -uroot -p carRacingDB < ./data/db.sql```
+##### To run
+Build application
+```mvn clean install```
+Run the application
+```java -jar target/carracing-0.0.1-SNAPSHOT.jar```
+<br/><br/>If there are any problems (hopefully not) they will be logged in app logs in the current dir (project root):
+app.log
