@@ -16,7 +16,6 @@ public class CurrencyService implements ICurrencyService{
     @Override
     public BigDecimal calculateTargetAmount(CurrencyCode targetCurrency, BigDecimal sourceAmount) {
         CurrencyPrice currencyPrice = priceRepository.findCurrencyPriceByBaseCurrencyAndTargetCurrency(CurrencyCode.ZAR, targetCurrency);
-
-        return currencyPrice.getCurrentAmount();
+        return  sourceAmount.multiply(currencyPrice.getCurrentAmount());
     }
 }
