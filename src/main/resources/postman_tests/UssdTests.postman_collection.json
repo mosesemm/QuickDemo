@@ -1,0 +1,113 @@
+{
+	"info": {
+		"_postman_id": "bfed259b-bdfa-4342-baac-1350b9c7c163",
+		"name": "UssdTests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "UssdInit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sessionId\": \"dfadfa\",\n    \"msisdn\": \"434\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{ussd-api}}/ussd",
+					"host": [
+						"{{ussd-api}}"
+					],
+					"path": [
+						"ussd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UssdEnterCountry",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sessionId\": \"dfadfa\",\n    \"msisdn\": \"434\",\n    \"userEntry\": \"1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{ussd-api}}/ussd",
+					"host": [
+						"{{ussd-api}}"
+					],
+					"path": [
+						"ussd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UssdEnterAmount",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sessionId\": \"dfadfa\",\n    \"msisdn\": \"434\",\n    \"userEntry\": \"10\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{ussd-api}}/ussd",
+					"host": [
+						"{{ussd-api}}"
+					],
+					"path": [
+						"ussd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UssdComplete",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sessionId\": \"dfadfa\",\n    \"msisdn\": \"434\",\n    \"userEntry\": \"1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{ussd-api}}/ussd",
+					"host": [
+						"{{ussd-api}}"
+					],
+					"path": [
+						"ussd"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
